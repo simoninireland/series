@@ -124,6 +124,7 @@ celerybeat.pid
 .venv
 env/
 venv/
+venv3/
 ENV/
 env.bak/
 venv.bak/
@@ -154,3 +155,9 @@ cython_debug/
 
 # Emacs backup files
 *~
+
+# Test site
+test/cache/
+test/output/
+test/plugins/series/
+*.db
