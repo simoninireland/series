@@ -1,0 +1,13 @@
+[Core]
+name = Series
+module = series
+
+[Documentation]
+author = Simon Dobson
+version = 0.1
+website = https://github.com/simoninireland/series
+description = Re-purposes Nikola categories as series or blogchains
+
+[Nikola]
+PluginCategory = SignalHandler
+MinVersion = 8.0.0
