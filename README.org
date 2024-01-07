@@ -1,0 +1,18 @@
+* ~series~: A Nikola plugin to turn categories into series of blogchains
+
+  [[https://getnikola.com][Nikola]] is a static site generator. Its posts can be accessed in
+  three distinct ways:
+
+  - chronologically by date, as a standard blog
+  - by tag, with each post potentially having lots of tags
+  - by category, with each post belonging to at most one category
+
+  It's sometimes nice to "curate" a series of posts, independent of
+  date or tag, into a self-contained series, for example describing
+  the progress of a particular project. A long series might benefit
+  from more "breadcrumbs" too, to make it easier to navigate around.
+
+  ~series~ renders posts in a category as a series (or "blogchain", as
+  they're sometimes called). Posts in a series are chained together,
+  and can have a contents page to allow for easier navigation.
+  Contents can be for the whole chain or just for nearby posts.
