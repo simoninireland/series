@@ -16,3 +16,63 @@
   they're sometimes called). Posts in a series are chained together,
   and can have a contents page to allow for easier navigation.
   Contents can be for the whole chain or just for nearby posts.
+
+** Installation
+
+   Copy the plugin to the ~plugins/~ directory.
+
+** Building a series
+
+   Any posts that have ~category~ metadata are converted into series.
+   This adds a ~series~ member to the post object, which is then
+   available in templates.
+
+   Posts are placed into the series in increasing date order (earliest
+   posts first) by default.
+
+   If a post has a ~category_order~ metadata value this is used to
+   define its place in the series. Using real numbers lets you slot a
+   post between two others. Or you can order each post explicitly to
+   get the order you want.
+
+** Templating a series
+
+   The ~series~ field added to post objects that are part of a series
+   provides templates with methods to present series posts. Posts that
+   are not part of a series will not have a ~series~ field.
+
+   The ~series~ field contains an object that offers the following
+   methods:
+
+   - ~title()~ :: Returns the title of the series. By default this is
+     the title of the first post in the series.
+   - ~numberOfPosts()~ :: Returns the number of posts in the series.
+   - ~indexOf(post)~ :: Returns the zero-based index of the post in the
+     series.
+   - ~numberOf(post)~ :: Returns the one-based number of the post in
+     the series.
+   - ~postsAround(post, n)~ :: Returns a list of approximately ~n~
+     posts centred on ~post~.
+   - ~includesFirstPost(post, n)~ :: Returns true if the ~n~ posts
+     around ~post~ include the first post in the series.
+   - ~includesLastPost(post, n)~ :: Returns true if the ~n~ posts
+     around ~post~ include the last post in the series.
+
+
+   Additionally posts in the series can be accessed by indexing into
+   it like an array, /e.g./, ~post.series[0]~ for the first post in
+   the series, or  ~post.series[0]~ for the last.
+
+** Sample template
+
+   The ~templates/series_helper.tmpl~ is an example for templating a
+   series using Jinja2. It defines a macro ~toc(post, n)~ that
+   generates a table of contents of about ~n~ posts centred on ~post~.
+   This creates a list of links to posts on either side of ~post~,
+   with ellipses if there are other posts before or after the ones
+   shown. The various elements are marked-up with CSS classes to allow
+   theming.
+
+** Copyright
+
+   Copyright (c) 2024, [[mailto:simoninireland@gmail.com][Simon Dobson]]. Licensed under the MIT License.
